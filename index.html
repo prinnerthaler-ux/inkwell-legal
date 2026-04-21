@@ -1,42 +1,35 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rechtliche Informationen - Inkwell Reader</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <a href="index.html" class="back-link">← Zurück</a>
-        <article class="content-page">
-            
-            <section id="terms">
-                <h1>Nutzungsbedingungen (Terms of Service)</h1>
-                <p><strong>Stand:</strong> 21. April 2026</p>
-                <p>Mit der Nutzung der Inkwell-App akzeptierst du folgende Bedingungen:</p>
-                <ul>
-                    <li><strong>KI-Inhalte:</strong> Die Dialoge mit Charakteren werden durch Künstliche Intelligenz (Google Gemini) generiert. Diese können fiktive, ungenaue oder unerwartete Aussagen enthalten. Sie spiegeln nicht die Meinung der Entwickler wider.</li>
-                    <li><strong>Abonnements:</strong> Käufe werden über den Google Play Store abgewickelt. Die Verwaltung und Kündigung erfolgt über dein Google-Konto.</li>
-                    <li><strong>Nutzung:</strong> Die App dient dem persönlichen Leseerlebnis. Eine missbräuchliche Nutzung der KI-Schnittstellen ist untersagt.</li>
-                </ul>
-            </section>
+:root {
+    --bg-color: #FBF9F6;
+    --text-color: #3A3530;
+    --accent-color: #8A847D;
+    --border-color: #E0DCD5;
+}
 
-            <hr style="margin: 40px 0; border: 0; border-top: 1px solid #E0DCD5;">
+body {
+    font-family: 'Georgia', serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    margin: 0;
+    padding: 20px;
+}
 
-            <section id="privacy">
-                <h1>Datenschutzerklärung</h1>
-                <h2>1. Datenverarbeitung</h2>
-                <p>Wir nutzen <strong>Supabase</strong> zur Speicherung deiner Bibliothek und <strong>RevenueCat</strong> zur Verwaltung deines Abo-Status. Texte für Charakter-Dialoge werden anonymisiert an die <strong>Google Cloud API</strong> übertragen.</p>
-                
-                <h2>2. Verantwortlicher</h2>
-                <p>[DEIN NAME]<br>[ADRESSE]<br>E-Mail: info@inkwell-reader.com</p>
+.container { max-width: 850px; margin: 60px auto; }
+header { text-align: center; margin-bottom: 50px; }
+.logo { font-size: 2.5rem; margin-bottom: 5px; color: #4A4540; }
+.subtitle { color: var(--accent-color); font-style: italic; }
 
-                <h2>3. Deine Rechte</h2>
-                <p>Du kannst dein Konto jederzeit in der App unter "Profil -> Konto löschen" vollständig entfernen.</p>
-            </section>
+.legal-links { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
+.card { 
+    text-decoration: none; color: inherit; padding: 30px; 
+    border: 1px solid var(--border-color); border-radius: 12px;
+    transition: all 0.3s ease; background: white;
+}
+.card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: var(--accent-color); }
+.card h2 { margin-top: 0; color: #4A4540; }
 
-        </article>
-    </div>
-</body>
-</html>
+footer { margin-top: 80px; text-align: center; font-size: 0.8rem; color: var(--accent-color); border-top: 1px solid var(--border-color); padding-top: 20px; }
+
+/* Styles für die Inhaltsseiten */
+.content-page { background: white; padding: 40px; border-radius: 12px; border: 1px solid var(--border-color); }
+.back-link { display: inline-block; margin-bottom: 20px; color: var(--accent-color); text-decoration: none; }
