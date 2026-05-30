@@ -20,7 +20,7 @@
         body { font-family: 'Lora', serif; background-color: #f8f5f2; color: #2d2d2d; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center text-center p-6">
+<body class="min-h-screen flex flex-col items-center justify-center text-center p-6 overflow-x-hidden w-full">
 
     <main class="max-w-3xl mx-auto flex-1 flex flex-col justify-center items-center mt-8 px-4">
         
@@ -121,73 +121,72 @@
 
             </div>
         </section>
-        <section class="w-full mt-24 mb-16 overflow-hidden relative">
+        <section class="w-full max-w-full mt-24 mb-16 relative">
             <div class="max-w-6xl mx-auto px-4 text-center mb-10">
-                <h2 class="text-3xl font-bold text-gray-800">Inkwell - Interaktiver Reader in Aktion</h2>
-                <p class="text-gray-600 mt-3">Klicke oder wische durch die Galerie, um einige Features zu entdecken.</p>
+                <h2 class="text-3xl font-bold text-gray-800">Inkwell - Interatkriver Reader in Aktion</h2>
+                <p class="text-gray-600 mt-3">Klicke oder wische durch die Galerie, um einige zentrale Features zu entdecken.</p>
             </div>
 
-            <div class="max-w-6xl mx-auto relative px-8 md:px-12 group">
+            <div class="max-w-6xl mx-auto relative px-0 sm:px-12 group w-full min-w-0">
                 
                 <button 
                     onclick="scrollCarousel(-1)" 
-                    class="absolute left-0 md:left-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 text-gray-800 p-2 md:p-3 rounded-full shadow-lg backdrop-blur-sm border border-gray-200 transition-all hover:scale-110 hover:bg-white focus:outline-none" 
+                    class="hidden sm:block absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 text-gray-800 p-3 rounded-full shadow-lg backdrop-blur-sm border border-gray-200 transition-all hover:scale-110 hover:bg-white focus:outline-none" 
                     aria-label="Zurück"
                 >
-                    <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                 </button>
 
-                <div id="screenshot-carousel" class="flex gap-6 overflow-x-auto pb-10 pt-4 snap-x snap-mandatory scroll-smooth" style="scrollbar-width: none;">
+                <div id="screenshot-carousel" class="flex gap-4 sm:gap-6 overflow-x-auto pb-10 pt-4 px-4 sm:px-0 snap-x snap-mandatory scroll-smooth w-full" style="scrollbar-width: none;">
                     <style>
                         #screenshot-carousel::-webkit-scrollbar { display: none; }
                     </style>
 
-                    <div class="flex-none w-[65vw] sm:w-60 md:w-72 snap-center transition-transform hover:scale-[1.02]">
-                        <img src="screenshot_1.png" alt="Inkwell Bibliothek" class="w-full h-auto">
+                    <div class="flex-none w-[75vw] sm:w-60 md:w-72 snap-center transition-transform hover:scale-[1.02]">
+                        <img src="screenshot_1.png" alt="Inkwell Bibliothek" class="w-full h-auto drop-shadow-lg rounded-[2rem]">
                     </div>
                     
-                    <div class="flex-none w-[65vw] sm:w-60 md:w-72 snap-center transition-transform hover:scale-[1.02]">
-                        <img src="screenshot_2.png" alt="Inkwell Casting" class="w-full h-auto">
+                    <div class="flex-none w-[75vw] sm:w-60 md:w-72 snap-center transition-transform hover:scale-[1.02]">
+                        <img src="screenshot_2.png" alt="Inkwell Casting" class="w-full h-auto drop-shadow-lg rounded-[2rem]">
                     </div>
 
-                    <div class="flex-none w-[65vw] sm:w-60 md:w-72 snap-center transition-transform hover:scale-[1.02]">
-                        <img src="screenshot_3.png" alt="Inkwell Zitate" class="w-full h-auto">
+                    <div class="flex-none w-[75vw] sm:w-60 md:w-72 snap-center transition-transform hover:scale-[1.02]">
+                        <img src="screenshot_3.png" alt="Inkwell Zitate" class="w-full h-auto drop-shadow-lg rounded-[2rem]">
                     </div>
 
-                    <div class="flex-none w-[65vw] sm:w-60 md:w-72 snap-center transition-transform hover:scale-[1.02]">
-                        <img src="screenshot_4.png" alt="Umbertos Analyse" class="w-full h-auto">
+                    <div class="flex-none w-[75vw] sm:w-60 md:w-72 snap-center transition-transform hover:scale-[1.02]">
+                        <img src="screenshot_4.png" alt="Umbertos Analyse" class="w-full h-auto drop-shadow-lg rounded-[2rem]">
                     </div>
 
-                    <div class="flex-none w-[65vw] sm:w-60 md:w-72 snap-center transition-transform hover:scale-[1.02]">
-                        <img src="screenshot_5.png" alt="Inkwell-Bar Polaroids" class="w-full h-auto">
+                    <div class="flex-none w-[75vw] sm:w-60 md:w-72 snap-center transition-transform hover:scale-[1.02]">
+                        <img src="screenshot_5.png" alt="Inkwell-Bar Polaroids" class="w-full h-auto drop-shadow-lg rounded-[2rem]">
                     </div>
 
-                    <div class="flex-none w-[65vw] sm:w-60 md:w-72 snap-center transition-transform hover:scale-[1.02]">
-                        <img src="screenshot_6.png" alt="Inkwell-Bar Thema" class="w-full h-auto">
+                    <div class="flex-none w-[75vw] sm:w-60 md:w-72 snap-center transition-transform hover:scale-[1.02]">
+                        <img src="screenshot_6.png" alt="Inkwell-Bar Thema" class="w-full h-auto drop-shadow-lg rounded-[2rem]">
                     </div>
 
-                    <div class="flex-none w-[65vw] sm:w-60 md:w-72 snap-center transition-transform hover:scale-[1.02]">
-                        <img src="screenshot_7.png" alt="Inkwell-Chat" class="w-full h-auto">
+                    <div class="flex-none w-[75vw] sm:w-60 md:w-72 snap-center transition-transform hover:scale-[1.02]">
+                        <img src="screenshot_7.png" alt="Inkwell-Bar Chat" class="w-full h-auto drop-shadow-lg rounded-[2rem]">
                     </div>
 
-                    <div class="flex-none w-[65vw] sm:w-60 md:w-72 snap-center transition-transform hover:scale-[1.02]">
-                        <img src="screenshot_8.png" alt="Inkwell Servietten" class="w-full h-auto">
+                    <div class="flex-none w-[75vw] sm:w-60 md:w-72 snap-center transition-transform hover:scale-[1.02]">
+                        <img src="screenshot_8.png" alt="Inkwell Servietten" class="w-full h-auto drop-shadow-lg rounded-[2rem]">
                     </div>
                 </div>
 
                 <button 
                     onclick="scrollCarousel(1)" 
-                    class="absolute right-0 md:right-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 text-gray-800 p-2 md:p-3 rounded-full shadow-lg backdrop-blur-sm border border-gray-200 transition-all hover:scale-110 hover:bg-white focus:outline-none" 
+                    class="hidden sm:block absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 text-gray-800 p-3 rounded-full shadow-lg backdrop-blur-sm border border-gray-200 transition-all hover:scale-110 hover:bg-white focus:outline-none" 
                     aria-label="Weiter"
                 >
-                    <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                 </button>
             </div>
 
             <script>
                 function scrollCarousel(direction) {
                     const container = document.getElementById('screenshot-carousel');
-                    // Berechnet die Scroll-Distanz basierend auf der sichtbaren Breite
                     const scrollAmount = container.clientWidth * 0.8; 
                     container.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
                 }
