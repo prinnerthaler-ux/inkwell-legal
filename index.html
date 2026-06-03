@@ -15,20 +15,12 @@
     <meta name="twitter:title" content="Inkwell - Interaktiver Reader">
     <meta name="twitter:description" content="Lade deine Lieblingsbücher hoch und diskutiere direkt in der Bar mit deinen Held:innen.">
     <meta name="twitter:image" content="https://inkwell-reader.com/Inkwell_Banner_V2.png">
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
-        body { 
-            font-family: 'Lora', serif; 
-            background-color: #f8f5f2; 
-            color: #2d2d2d; 
-            margin: 0; 
-            padding: 0; 
-        }
-        #screenshot-carousel::-webkit-scrollbar { 
-            display: none; 
-        }
+        body { font-family: 'Lora', serif; background-color: #f8f5f2; color: #2d2d2d; margin: 0; padding: 0; }
+        #screenshot-carousel::-webkit-scrollbar { display: none; }
     </style>
 </head>
 <body class="antialiased">
@@ -36,244 +28,263 @@
     <div class="w-full max-w-[100vw] overflow-x-hidden flex flex-col min-h-screen">
 
         <main class="w-full max-w-3xl mx-auto flex flex-col justify-center items-center mt-8 px-4 text-center">
+            <img src="Inkwell_Banner_V2.png" alt="Inkwell App Banner" class="w-full h-auto mb-8 rounded-2xl shadow-xl border border-gray-200/50">
             
-            <img 
-                src="Inkwell_Banner_V2.png" 
-                alt="Inkwell App Banner" 
-                class="w-full h-auto mb-8 rounded-2xl shadow-xl border border-gray-200/50"
-            >
-            
-            <h1 class="text-4xl md:text-5xl font-bold mb-4 text-center">Literatur neu erleben.</h1>
-            <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed text-center">
-                Stell dir vor, du liest nicht nur ein Buch – du erlebst es im direkten Dialog. Inkwell - Interaktiver Reader verwandelt das Lesen klassischer Weltliteratur in ein interaktives Abenteuer. Chatte direkt im Buch mit deinen Lieblingsfiguren, triff deine Roman-Held:innen in der Inkwell-Bar und werde Teil einer lebendigen literarischen Welt.
-            </p>
+            <!-- Toggle Switch -->
+            <div class="flex justify-center mb-8">
+                <div class="bg-gray-200/60 p-1.5 rounded-full flex gap-1 relative shadow-inner">
+                    <button onclick="setMode('reader')" id="btn-reader" class="px-6 py-2.5 rounded-full text-sm font-bold bg-white shadow-sm transition-all text-gray-900 focus:outline-none">Leser:innen</button>
+                    <button onclick="setMode('author')" id="btn-author" class="px-6 py-2.5 rounded-full text-sm font-bold text-gray-500 hover:text-gray-900 transition-all focus:outline-none">Autor:innen</button>
+                </div>
+            </div>
+
+            <!-- Hero: Leser:innen -->
+            <div class="view-reader">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 text-center">Literatur neu erleben.</h1>
+                <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed text-center">
+                    Stell dir vor, du liest nicht nur ein Buch – du erlebst es im direkten Dialog. Inkwell verwandelt das Lesen in ein interaktives Abenteuer. Chatte direkt im Buch mit Figuren und triff deine Roman-Held:innen in der Bar.
+                </p>
+            </div>
+
+            <!-- Hero: Autor:innen -->
+            <div class="view-author hidden">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 text-center">Triff deine eigenen Figuren.</h1>
+                <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed text-center">
+                    Lade deinen Roman-Entwurf als EPUB hoch. Führe Interviews mit deinen Protagonist:innen, um ihren Vibe zu schärfen, und verwandle dein Manuskript in eine lebendige Testumgebung.
+                </p>
+            </div>
 
             <a href="https://play.google.com/store/apps/details?id=at.inkwell.reader&pcampaignid=web_share" target="_blank" class="transition-transform hover:scale-105 inline-block">
                 <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/de_badge_web_generic.png" class="h-16"/>
             </a>
-
-            <div class="mt-16 flex flex-col items-center w-full animate-fade-in">
-                <h2 class="text-2xl font-bold mb-8 text-gray-800 text-center">Einblick in die Inkwell-Bar</h2>
-                
-                <div class="relative overflow-hidden shadow-2xl border-[6px] border-gray-900 bg-black rounded-[2.5rem]" style="width: 315px; height: 560px;">
-                    <iframe 
-                        src="https://www.youtube.com/embed/5ZJnFyR83GM?autoplay=0&loop=1&rel=0" 
-                        title="Inkwell-Bar Preview" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen
-                        class="absolute top-0 left-0 w-full h-full rounded-[2.2rem]"
-                    ></iframe>
-                </div>
-                <p class="mt-4 text-sm text-gray-500 italic">Erlebe unvergessliche Gespräche mit deinen Roman-Held:innen.</p>
-            </div>
         </main>
 
-        <section class="w-full max-w-6xl mx-auto mt-24 mb-16 px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Was Inkwell - Interaktiver Reader besonders macht</h2>
-            
+        <!-- Shared Video Section -->
+        <section class="w-full mt-16 flex flex-col items-center px-4">
+            <h2 class="text-2xl font-bold mb-8 text-gray-800 text-center">Einblick in die Inkwell-Bar</h2>
+            <div class="relative overflow-hidden shadow-2xl border-[6px] border-gray-900 bg-black rounded-[2.5rem]" style="width: 315px; height: 560px;">
+                <iframe src="https://www.youtube.com/embed/5ZJnFyR83GM?autoplay=0&loop=1&rel=0" title="Inkwell-Bar Preview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="absolute top-0 left-0 w-full h-full rounded-[2.2rem]"></iframe>
+            </div>
+            <p class="view-reader mt-4 text-sm text-gray-500 italic text-center">Erlebe unvergessliche Gespräche mit deinen Roman-Held:innen.</p>
+            <p class="view-author hidden mt-4 text-sm text-gray-500 italic text-center">Entwickle authentische Dialoge direkt mit deinen Figuren.</p>
+        </section>
+
+        <!-- Feature Grid: Leser:innen -->
+        <section class="view-reader w-full max-w-6xl mx-auto mt-24 px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Was Inkwell besonders macht</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
-                
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                    <svg class="w-8 h-8 text-amber-700 mb-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
-                    </svg>
+                    <svg class="w-8 h-8 text-amber-700 mb-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" /></svg>
                     <h3 class="text-lg font-bold mb-2 text-gray-900">Triff deine Held:innen</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Führe spoilerfreie Dialoge direkt im Text. Deine Figuren wissen nur das, was in der Geschichte bis zu deiner aktuellen Leseposition passiert ist.
-                    </p>
+                    <p class="text-gray-600 text-sm leading-relaxed">Führe spoilerfreie Dialoge direkt im Text. Deine Figuren wissen nur das, was in der Geschichte bis zu deiner aktuellen Leseposition passiert ist.</p>
                 </div>
-
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                    <svg class="w-8 h-8 text-amber-700 mb-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.99 22v-9m0 0l-9-9h18l-9 9z" />
-                    </svg>
+                    <svg class="w-8 h-8 text-amber-700 mb-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.99 22v-9m0 0l-9-9h18l-9 9z" /></svg>
                     <h3 class="text-lg font-bold mb-2 text-gray-900">Die Inkwell-Bar</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Lade bis zu drei Figuren auf einen Drink ein, diskutiere mit ihnen über das Gelesene und verewige die besten Aussagen auf Servietten.
-                    </p>
+                    <p class="text-gray-600 text-sm leading-relaxed">Lade bis zu drei Figuren auf einen Drink ein, diskutiere mit ihnen über das Gelesene und verewige die besten Aussagen auf Servietten.</p>
                 </div>
-
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                    <svg class="w-8 h-8 text-amber-700 mb-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
-                    </svg>
+                    <svg class="w-8 h-8 text-amber-700 mb-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" /></svg>
                     <h3 class="text-lg font-bold mb-2 text-gray-900">Analysen mit Umberto</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Dein literaturwissenschaftlicher Mentor erklärt dir Terminologie, Motive, Epochen und komplexe Zusammenhänge direkt im Buch.
-                    </p>
+                    <p class="text-gray-600 text-sm leading-relaxed">Dein literaturwissenschaftlicher Mentor erklärt dir Terminologie, Motive, Epochen und komplexe Zusammenhänge direkt im Buch.</p>
                 </div>
-
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                    <svg class="w-8 h-8 text-amber-700 mb-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
-                    </svg>
+                    <svg class="w-8 h-8 text-amber-700 mb-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" /></svg>
                     <h3 class="text-lg font-bold mb-2 text-gray-900">Dein Lese-Atelier</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Passe die Reader-Einstellungen an: Wähle Schriftart, Größe und Farbschema oder lies entspannt freihändig mit dem InkFlow-Modus.
-                    </p>
+                    <p class="text-gray-600 text-sm leading-relaxed">Passe Schrift und Farben an oder lies entspannt freihändig mit dem klaren und immersiven InkFlow-Modus.</p>
                 </div>
-
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                    <svg class="w-8 h-8 text-amber-700 mb-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
-                    </svg>
+                    <svg class="w-8 h-8 text-amber-700 mb-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" /></svg>
                     <h3 class="text-lg font-bold mb-2 text-gray-900">Gemeinfreie Meisterwerke</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Zum Schutz des Urheberrechts analysiert und castet unsere KI ausschließlich Figuren aus gemeinfreien Buch-Klassikern.
-                    </p>
+                    <p class="text-gray-600 text-sm leading-relaxed">Zum Schutz des Urheberrechts analysiert und castet unsere KI ausschließlich Figuren aus gemeinfreien Buch-Klassikern.</p>
                 </div>
-
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                    <svg class="w-8 h-8 text-amber-700 mb-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
-                    </svg>
+                    <svg class="w-8 h-8 text-amber-700 mb-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" /></svg>
                     <h3 class="text-lg font-bold mb-2 text-gray-900">Nahtlose Cloud-Bibliothek</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Dein Lesefortschritt, deine hochgeladenen Bücher und deine Unterhaltungen werden sicher synchronisiert. Lies jederzeit genau dort weiter, wo du warst.
-                    </p>
+                    <p class="text-gray-600 text-sm leading-relaxed">Dein Lesefortschritt, deine hochgeladenen Bücher und deine Unterhaltungen werden sicher synchronisiert. Lies jederzeit genau dort weiter.</p>
                 </div>
-
             </div>
         </section>
 
-        <section class="w-full max-w-full mt-24 mb-16 relative">
+        <!-- Feature Grid: Autor:innen -->
+        <section class="view-author hidden w-full max-w-6xl mx-auto mt-24 px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Die Werkzeuge für dein Manuskript</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+                <!-- Autorenedition Feature 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <svg class="w-8 h-8 text-amber-700 mb-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" /></svg>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">Der perfekte Vibe</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Feile am Tone of Voice deiner Figuren. Finde durch direkte Dialoge die authentische Stimme deiner Protagonist:innen und teste extreme Reaktionen.</p>
+                </div>
+                <!-- Autorenedition Feature 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <svg class="w-8 h-8 text-amber-700 mb-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.99 22v-9m0 0l-9-9h18l-9 9z" /></svg>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">Die Inkwell-Bar</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Schreibblockade? Lade deine eigenen Figuren auf einen Drink ein und frag sie direkt, wie sie im nächsten Kapitel handeln würden.</p>
+                </div>
+                <!-- Autorenedition Feature 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <svg class="w-8 h-8 text-amber-700 mb-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" /></svg>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">Analysen mit Umberto</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Dein analytischer Begleiter. Diskutiere mit Umberto über tiefe Motive, historische Kontexte oder das Worldbuilding in deinem Entwurf.</p>
+                </div>
+                <!-- Autorenedition Feature 4 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <svg class="w-8 h-8 text-amber-700 mb-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" /></svg>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">Crossover-Dialoge</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Lass deine Figuren von den Großen lernen. Setze deinen eigenen Detektiv neben Sherlock Holmes an die Bar und beobachte den Austausch.</p>
+                </div>
+                <!-- Autorenedition Feature 5 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <svg class="w-8 h-8 text-amber-700 mb-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">Absolute Sicherheit</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Dein geistiges Eigentum bleibt deines. Manuskripte werden lokal verarbeitet und verschlüsselt gespeichert. Kein KI-Training auf Basis deines Textes.</p>
+                </div>
+                <!-- Autorenedition Feature 6 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <svg class="w-8 h-8 text-amber-700 mb-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" /></svg>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">Nahtlose Synchronisation</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Dein Arbeitsfortschritt, importierte Versionen und alle Gespräche werden sicher synchronisiert. Arbeite nahtlos geräteübergreifend.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shared Screenshot Carousel -->
+        <section class="w-full max-w-full mt-12 mb-16 relative">
             <div class="max-w-6xl mx-auto px-4 text-center mb-10">
-                <h2 class="text-3xl font-bold text-gray-800">Inkwell - Interaktiver Reader in Aktion</h2>
-                <p class="text-gray-600 mt-3">Klicke oder wische durch die Galerie, um einige zentrale Features zu entdecken.</p>
+                <h2 class="text-3xl font-bold text-gray-800">Inkwell in Aktion</h2>
+                <p class="text-gray-600 mt-3">Wische durch die Galerie, um zentrale Features zu entdecken.</p>
             </div>
 
             <div class="max-w-6xl mx-auto relative px-0 sm:px-12 group w-full min-w-0">
-                
-                <button 
-                    onclick="scrollCarousel(-1)" 
-                    class="hidden sm:block absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 text-gray-800 p-3 rounded-full shadow-lg backdrop-blur-sm border border-gray-200 transition-all hover:scale-110 hover:bg-white focus:outline-none" 
-                    aria-label="Zurück"
-                >
+                <button onclick="scrollCarousel(-1)" class="hidden sm:block absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 text-gray-800 p-3 rounded-full shadow-lg backdrop-blur-sm border border-gray-200 transition-all hover:scale-110 hover:bg-white focus:outline-none" aria-label="Zurück">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                 </button>
 
-                <div id="screenshot-carousel" class="flex gap-4 sm:gap-6 overflow-x-auto pb-10 pt-4 px-4 sm:px-0 snap-x snap-mandatory scroll-smooth w-full" style="scrollbar-width: none;">
-                    
+                <div id="screenshot-carousel" class="flex gap-4 sm:gap-6 overflow-x-auto pb-10 pt-4 px-4 sm:px-0 snap-x snap-mandatory scroll-smooth w-full">
                     <div class="flex-none w-[75vw] sm:w-60 md:w-72 snap-center transition-transform hover:scale-[1.02]">
                         <img src="screenshot_1.png" alt="Inkwell Bibliothek" class="w-full h-auto drop-shadow-lg rounded-[2rem]">
                     </div>
-                    
                     <div class="flex-none w-[75vw] sm:w-60 md:w-72 snap-center transition-transform hover:scale-[1.02]">
                         <img src="screenshot_2.png" alt="Inkwell Casting" class="w-full h-auto drop-shadow-lg rounded-[2rem]">
                     </div>
-
                     <div class="flex-none w-[75vw] sm:w-60 md:w-72 snap-center transition-transform hover:scale-[1.02]">
                         <img src="screenshot_3.png" alt="Inkwell Zitate" class="w-full h-auto drop-shadow-lg rounded-[2rem]">
                     </div>
-
                     <div class="flex-none w-[75vw] sm:w-60 md:w-72 snap-center transition-transform hover:scale-[1.02]">
                         <img src="screenshot_4.png" alt="Umbertos Analyse" class="w-full h-auto drop-shadow-lg rounded-[2rem]">
                     </div>
-
                     <div class="flex-none w-[75vw] sm:w-60 md:w-72 snap-center transition-transform hover:scale-[1.02]">
                         <img src="screenshot_5.png" alt="Inkwell-Bar Polaroids" class="w-full h-auto drop-shadow-lg rounded-[2rem]">
                     </div>
-
                     <div class="flex-none w-[75vw] sm:w-60 md:w-72 snap-center transition-transform hover:scale-[1.02]">
                         <img src="screenshot_6.png" alt="Inkwell-Bar Thema" class="w-full h-auto drop-shadow-lg rounded-[2rem]">
                     </div>
-
                     <div class="flex-none w-[75vw] sm:w-60 md:w-72 snap-center transition-transform hover:scale-[1.02]">
                         <img src="screenshot_7.png" alt="Inkwell-Bar Chat" class="w-full h-auto drop-shadow-lg rounded-[2rem]">
                     </div>
-
                     <div class="flex-none w-[75vw] sm:w-60 md:w-72 snap-center transition-transform hover:scale-[1.02]">
                         <img src="screenshot_8.png" alt="Inkwell Servietten" class="w-full h-auto drop-shadow-lg rounded-[2rem]">
                     </div>
                 </div>
 
-                <button 
-                    onclick="scrollCarousel(1)" 
-                    class="hidden sm:block absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 text-gray-800 p-3 rounded-full shadow-lg backdrop-blur-sm border border-gray-200 transition-all hover:scale-110 hover:bg-white focus:outline-none" 
-                    aria-label="Weiter"
-                >
+                <button onclick="scrollCarousel(1)" class="hidden sm:block absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 text-gray-800 p-3 rounded-full shadow-lg backdrop-blur-sm border border-gray-200 transition-all hover:scale-110 hover:bg-white focus:outline-none" aria-label="Weiter">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                 </button>
             </div>
-
-            <script>
-                function scrollCarousel(direction) {
-                    const container = document.getElementById('screenshot-carousel');
-                    const scrollAmount = container.clientWidth * 0.8; 
-                    container.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
-                }
-            </script>
         </section>
 
-        <section class="w-full max-w-6xl mx-auto mt-16 mb-16 px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Was unsere ersten Leser:innen sagen</h2>
-
+        <!-- Testimonials: Leser:innen -->
+        <section class="view-reader w-full max-w-6xl mx-auto mt-8 mb-16 px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Was unsere Leser:innen sagen</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-
                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative overflow-hidden">
-                    <svg class="w-16 h-16 text-amber-50 absolute top-4 left-4 z-0" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                    </svg>
-                    
+                    <svg class="w-16 h-16 text-amber-50 absolute top-4 left-4 z-0" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
                     <div class="relative z-10 flex flex-col h-full justify-between">
-                        <p class="text-gray-600 italic leading-relaxed mb-8">
-                            „Ich habe gestern Abend eine Stunde lang mit Gregor Samsa in der Inkwell-Bar über das Gefühl von Isolation diskutiert. Das verändert die Art, wie ich Kafka lese, komplett. Unfassbar immersiv.“
-                        </p>
+                        <p class="text-gray-600 italic leading-relaxed mb-8">„Ich habe gestern Abend eine Stunde lang mit Gregor Samsa in der Inkwell-Bar über Isolation diskutiert. Das verändert die Art, wie ich Kafka lese, komplett.“</p>
                         <div>
-                            <h4 class="font-bold text-gray-900">Thomas K.</h4>
+                            <h4 class="font-bold text-gray-900">Eric K.</h4>
                             <p class="text-sm text-amber-700">Klassiker-Fan</p>
                         </div>
                     </div>
                 </div>
-
                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative overflow-hidden">
-                    <svg class="w-16 h-16 text-amber-50 absolute top-4 left-4 z-0" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                    </svg>
-                    
+                    <svg class="w-16 h-16 text-amber-50 absolute top-4 left-4 z-0" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
                     <div class="relative z-10 flex flex-col h-full justify-between">
-                        <p class="text-gray-600 italic leading-relaxed mb-8">
-                            „Normalerweise muss ich beim Lesen klassischer Literatur ständig Begriffe oder den historischen Kontext googeln. Umberto erklärt mir Motive und Epochen jetzt direkt im Text, ohne dass ich den Lesefluss verliere.“
-                        </p>
+                        <p class="text-gray-600 italic leading-relaxed mb-8">„Normalerweise muss ich beim Lesen historischer Literatur ständig Begriffe googeln. Umberto erklärt mir Motive und Epochen jetzt direkt im Text.“</p>
                         <div>
-                            <h4 class="font-bold text-gray-900">Anna M.</h4>
+                            <h4 class="font-bold text-gray-900">Samira M.</h4>
                             <p class="text-sm text-amber-700">Germanistik-Studentin</p>
                         </div>
                     </div>
                 </div>
-
                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative overflow-hidden">
-                    <svg class="w-16 h-16 text-amber-50 absolute top-4 left-4 z-0" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                    </svg>
-                    
+                    <svg class="w-16 h-16 text-amber-50 absolute top-4 left-4 z-0" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
                     <div class="relative z-10 flex flex-col h-full justify-between">
-                        <p class="text-gray-600 italic leading-relaxed mb-8">
-                            „Endlich ein Reader, der mehr ist als nur toter Text auf einem Bildschirm. Wenn ich mich einlogge, fühlt es sich an, als würden meine Lieblingsfiguren bereits auf mich warten.“
-                        </p>
+                        <p class="text-gray-600 italic leading-relaxed mb-8">„Endlich ein Reader, der mehr ist als nur Text auf einem Bildschirm. Wenn ich mich einlogge, fühlt es sich an, als würden meine Lieblingsfiguren auf mich warten.“</p>
                         <div>
                             <h4 class="font-bold text-gray-900">Sarah L.</h4>
                             <p class="text-sm text-amber-700">Buchbloggerin</p>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
+        <!-- Testimonials: Autor:innen -->
+        <section class="view-author hidden w-full max-w-6xl mx-auto mt-8 mb-16 px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Was andere Autor:innen sagen</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative overflow-hidden">
+                    <svg class="w-16 h-16 text-amber-50 absolute top-4 left-4 z-0" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    <div class="relative z-10 flex flex-col h-full justify-between">
+                        <p class="text-gray-600 italic leading-relaxed mb-8">„Ich hing tagelang an einem Plottwist fest. Erst als ich meinen Antagonisten in der Inkwell-Bar zur Rede gestellt habe, wusste ich, wie es im nächsten Kapitel weitergeht.“</p>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Julia R.</h4>
+                            <p class="text-sm text-amber-700">Krimi-Autorin</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative overflow-hidden">
+                    <svg class="w-16 h-16 text-amber-50 absolute top-4 left-4 z-0" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    <div class="relative z-10 flex flex-col h-full justify-between">
+                        <p class="text-gray-600 italic leading-relaxed mb-8">„Dank der Crossover-Funktion konnte ich meine Heldin mit Jane Eyre diskutieren lassen. Das hat ihren Tone of Voice unglaublich geschärft!“</p>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Markus T.</h4>
+                            <p class="text-sm text-amber-700">Indie-Publisher</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative overflow-hidden">
+                    <svg class="w-16 h-16 text-amber-50 absolute top-4 left-4 z-0" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    <div class="relative z-10 flex flex-col h-full justify-between">
+                        <p class="text-gray-600 italic leading-relaxed mb-8">„Die Verschlüsselung war für mich entscheidend. Ich kann meine unfertigen Drafts in der App testen, ohne Angst um mein Copyright haben zu müssen.“</p>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Elena S.</h4>
+                            <p class="text-sm text-amber-700">Fantasy-Autorin</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
         <section class="w-full max-w-4xl mx-auto mt-16 mb-24 px-4 text-center">
             <div class="bg-white p-10 md:p-16 rounded-[2.5rem] shadow-sm border border-gray-100 flex flex-col items-center relative overflow-hidden">
-                
                 <div class="absolute -top-24 -right-24 w-64 h-64 bg-amber-50 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
                 <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-gray-50 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+                
+                <div class="relative z-10 view-reader">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Bereit für dein nächstes Buch?</h2>
+                    <p class="text-lg text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">Lade Inkwell jetzt herunter, importiere deine EPUBs und nimm Platz in der Bar. Deine Held:innen warten schon auf dich.</p>
+                </div>
+
+                <div class="relative z-10 view-author hidden">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Bereit für dein nächstes Kapitel?</h2>
+                    <p class="text-lg text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">Lade dein Manuskript als EPUB hoch und lerne deine eigenen Figuren heute Abend noch persönlich kennen.</p>
+                </div>
 
                 <div class="relative z-10">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Bereit für dein erstes Gespräch in der Inkwell-Bar?</h2>
-                    <p class="text-lg text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-                        Lade Inkwell - Interaktiver Reader jetzt herunter. Deine Roman-Held:innen warten schon auf dich.
-                    </p>
-                    
                     <a href="https://play.google.com/store/apps/details?id=at.inkwell.reader&pcampaignid=web_share" target="_blank" class="inline-block transition-transform hover:scale-105">
                         <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/de_badge_web_generic.png" class="h-16 shadow-sm rounded-lg"/>
                     </a>
@@ -281,7 +292,8 @@
             </div>
         </section>
 
-        <footer class="w-full py-6 mt-12 border-t border-gray-300 text-sm text-gray-500 text-center pb-8">
+        <!-- Footer -->
+        <footer class="w-full py-6 mt-auto border-t border-gray-300 text-sm text-gray-500 text-center pb-8">
             <div class="flex flex-wrap justify-center gap-4 md:gap-6">
                 <a href="privacy.html" class="hover:text-gray-800 transition-colors">Datenschutz</a>
                 <a href="legal.html" class="hover:text-gray-800 transition-colors">Impressum & AGB</a>
@@ -292,5 +304,36 @@
 
     </div>
 
+    <!-- Toggle Script & Carousel Script -->
+    <script>
+        function setMode(mode) {
+            const readerViews = document.querySelectorAll('.view-reader');
+            const authorViews = document.querySelectorAll('.view-author');
+            const btnReader = document.getElementById('btn-reader');
+            const btnAuthor = document.getElementById('btn-author');
+
+            if (mode === 'author') {
+                readerViews.forEach(el => el.classList.add('hidden'));
+                authorViews.forEach(el => el.classList.remove('hidden'));
+                btnAuthor.classList.add('bg-white', 'shadow-sm', 'text-gray-900');
+                btnAuthor.classList.remove('text-gray-500');
+                btnReader.classList.remove('bg-white', 'shadow-sm', 'text-gray-900');
+                btnReader.classList.add('text-gray-500');
+            } else {
+                authorViews.forEach(el => el.classList.add('hidden'));
+                readerViews.forEach(el => el.classList.remove('hidden'));
+                btnReader.classList.add('bg-white', 'shadow-sm', 'text-gray-900');
+                btnReader.classList.remove('text-gray-500');
+                btnAuthor.classList.remove('bg-white', 'shadow-sm', 'text-gray-900');
+                btnAuthor.classList.add('text-gray-500');
+            }
+        }
+
+        function scrollCarousel(direction) {
+            const container = document.getElementById('screenshot-carousel');
+            const scrollAmount = container.clientWidth * 0.8; 
+            container.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
